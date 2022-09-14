@@ -3,19 +3,19 @@ Calculator_JAR_PATH=/disk/rl/tsfileReadExp/RLRepeatReadResultAvgPercCalculator-0
 TOOL_PATH=/disk/rl/tsfileReadExp/RLtool.sh
 READ_SCRIPT_PATH=/disk/rl/tsfileReadExp/RLReadExpScripts.sh
 
-for co in UNCOMPRESSED SNAPPY GZIP LZ4
+for ve in PLAIN RLE TS_2DIFF GORILLA
 do
   # 写数据参数
 	ppn=10000
 	pic=1000
 	cw=10
 	te=TS_2DIFF
-	vt=INT32
-	ve=PLAIN
+	vt=INT64
+	co=UNCOMPRESSED
 	# 读数据参数
 	decomposeMeasureTime=TRUE
 	D_decompose_each_step=FALSE
-	REPEAT=5
+	REPEAT=10
 
 	# 写数据
 	java -jar $WRITE_READ_JAR_PATH write_syn $ppn $pic $cw $te $vt $ve $co
