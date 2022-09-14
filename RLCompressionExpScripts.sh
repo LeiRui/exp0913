@@ -1,6 +1,6 @@
 WRITE_READ_JAR_PATH=/disk/rl/tsfileReadExp/RLTsFileReadCostBench-0.13.1-jar-with-dependencies.jar
 Calculator_JAR_PATH=/disk/rl/tsfileReadExp/RLRepeatReadResultAvgPercCalculator-0.13.1-jar-with-dependencies.jar
-TOOL_PATH=/disk/rl/tsfileReadExp/tool.sh
+TOOL_PATH=/disk/rl/tsfileReadExp/RLtool.sh
 READ_SCRIPT_PATH=/disk/rl/tsfileReadExp/RLReadExpScripts.sh
 
 for co in UNCOMPRESSED SNAPPY GZIP LZ4
@@ -29,6 +29,7 @@ do
 	bash ${TOOL_PATH} FILE_NAME $FILE_NAME $READ_SCRIPT_PATH
 	bash ${TOOL_PATH} decomposeMeasureTime $decomposeMeasureTime $READ_SCRIPT_PATH
 	bash ${TOOL_PATH} D_decompose_each_step $D_decompose_each_step $READ_SCRIPT_PATH
+	bash ${TOOL_PATH} te $te $READ_SCRIPT_PATH
 	bash ${TOOL_PATH} REPEAT $REPEAT $READ_SCRIPT_PATH
 	bash $READ_SCRIPT_PATH
 done
